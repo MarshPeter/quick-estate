@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-body-tertiary">
+  <div>
     <HeaderNavbar :authenticated="authenticated"></HeaderNavbar>
     <main>
       <router-view :authenticated="this.authenticated" />

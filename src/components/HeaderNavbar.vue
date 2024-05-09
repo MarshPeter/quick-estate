@@ -43,6 +43,12 @@ export default {
                     name: "Login",
                     whenAuthenticated: false,
                     whenNotAuthenticated: true,
+                },
+                {
+                    route: "/registration",
+                    name: "registration",
+                    whenAuthenticated: false,
+                    whenNotAuthenticated: true,
                 }
             ],
             authenticated: localStorage.getItem('user_id'),
