@@ -23,18 +23,18 @@
                     </div>
                 </div>
             </div>
-            <div class="container container-xl text-center mt-4 pt-2 pb-2 bg-body-secondary rounded shadow border border-black">
+            <div class="container container-xl text-center mt-4 pt-2 pb-4 bg-body-secondary rounded shadow border border-black">
                 <div class="row pb-2">
                     <h3>Trust Us Today!</h3>
                 </div>
                 <div class="row gap-4 justify-content-center">
-                    <div class="col-8 d-grid">
-                        <button type="button" class="btn btn-primary btn-lg">Login</button>
+                    <div class="col-8 col-md-3 d-grid">
+                        <routerLink to="/login" class="btn btn-primary btn-lg">Login</routerLink>
                     </div>
-                    <div class="col-8 d-grid">
+                    <div class="col-8 col-md-3 d-grid">
                         <button type="button" class="btn btn-primary btn-lg">Find Next Home!</button>
                     </div>
-                    <div class="col-8 d-grid">
+                    <div class="col-8 col-md-3 d-grid">
                         <button type="button" class="btn btn-outline-primary btn-lg">Register</button>
                     </div>
                 </div>

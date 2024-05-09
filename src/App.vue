@@ -1,7 +1,9 @@
 <template>
   <div class="bg-body-tertiary">
-    <HeaderNavbar></HeaderNavbar>
-    <router-view/>
+    <HeaderNavbar :authenticated="authenticated"></HeaderNavbar>
+    <main>
+      <router-view :authenticated="this.authenticated" />
+    </main>
   </div>
 </template>
 
@@ -9,6 +11,11 @@
   import HeaderNavbar from './components/HeaderNavbar.vue';
   export default {
     name: "App",
+    data() {
+      return {
+        authenticated: false,
+      }
+    },
     components: { HeaderNavbar }
   }
 </script>

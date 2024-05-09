@@ -8,12 +8,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <li v-for="link in headerLinks" v-bind:key="link.name">
+                        <router-link class="nav-link" :to="{ path:link.route }">{{ link.name }}</router-link>
+                    </li>
+                    <!-- <li class="nav-item">
                         <router-link class="nav-link" to="/">Home</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" to="/about">About</router-link>
-                    </li>
+                    </li> -->
+                    <button v-if="this.authenticated" class="nav-link" @click="logout">Logout</button>
                 </ul>
                 </div>
             </div>
@@ -24,6 +28,36 @@
 <script>
 export default {
     name: "HeaderNavbar",
+    data() {
+        return {
+            userSet: false,
+            routes: [
+                {
+                    route: '/',
+                    name: "Home",
+                    whenAuthenticated: true,
+                    whenNotAuthenticated: true,
+                },
+                {
+                    route: "/login",
+                    name: "Login",
+                    whenAuthenticated: false,
+                    whenNotAuthenticated: true,
+                }
+            ],
+            authenticated: localStorage.getItem('user_id'),
+        }
+    },
+    computed: {
+        headerLinks() {
+            return this.routes.filter(route => (!this.authenticated && route.whenNotAuthenticated) || (this.authenticated && route.whenAuthenticated));
+        }
+    },
+    methods: {
+        logout() {
+            this.authenticated = null;
+        }
+    }
 }
 </script>
 
