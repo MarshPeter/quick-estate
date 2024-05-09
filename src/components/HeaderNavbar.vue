@@ -55,6 +55,7 @@ export default {
     },
     methods: {
         logout() {
+            localStorage.removeItem("user_id");
             this.authenticated = null;
         }
     }
