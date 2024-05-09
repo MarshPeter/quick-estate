@@ -70,9 +70,11 @@
                 this.validatePassword();
 
                 if (this.errors.length !== 0) {
+                    console.log(this.errors);
                     return;
                 }
 
+                this.createAccount();
             },
             validateFirstName() {
                 const regex = /^[a-zA-Z]+$/;
@@ -134,6 +136,44 @@
                     this.errors.push("Both password fields must match. Please check for mistakes");
                 }
             },
+            createAccount() {
+                const requestOptions = {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        firstName: this.firstName,
+                        lastName: this.firstName,
+                        email: this.email,
+                        displayName: this.displayName,
+                        phone: this.displayName ? this.displayName : null,
+                        password: this.password,
+                    })
+                }
+
+                let status = null;
+
+                fetch(`http://localhost:3000/api/create-account`, requestOptions)
+                    .then(res => {
+                        status = res.status;
+                        return res.json();
+                    })
+                    .then(data => {
+                        if (status !== 200) {
+                            this.errors.push(data.err);
+                        } else {
+                            this.$emit("authenticated", true);
+                            localStorage.setItem('user_id', data.id);
+                            this.$router.go(0);
+                        }
+                    });
+            }
+        },
+        mounted() {
+            if (localStorage.getItem("user_id")) {
+                this.$router.push({name: "home"});
+            }
         }
     }
 </script>
