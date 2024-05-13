@@ -5,6 +5,7 @@ import RegistrationView from '@/views/RegistrationView.vue';
 import ListingsView from '@/views/ListingsView.vue';
 import ProfileView from '@/views/ProfileView.vue';
 import EditListingView from '@/views/EditListing.vue';
+import CreateListing from '@/views/CreateListingView.vue';
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path: '/edit-listing/:id',
     name: 'editListing',
     component: EditListingView,
+  },
+  {
+    path: '/create-listing',
+    name: 'createListing',
+    component: CreateListing,
   }
 ]
 
