@@ -1,24 +1,13 @@
-# quick-estate
 
-## Project setup
-```
-npm install
-```
+# TOOD LIST
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[x] - Create Edit Listing Page
+[x] - Create Routing to the edit Listing page
+[x] - Link listing cards to the edit listing page
+[x] - Use created API to grab listing
+[ ] - Display Current API details
+[ ] - Create formm for editable sections
+[ ] - have confirmation message
+[ ] - create put API for updating listings
+[ ] - send the new listing data
+[ ] - redirect to profile menu if success

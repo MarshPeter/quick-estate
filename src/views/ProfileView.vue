@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <RouterLink :to="listingEditDestination(listing)" class="btn btn-primary" v-if="accountOwner(listing)">edit</RouterLink>
                             </div>
                         </div>
                     </div>
@@ -93,6 +93,16 @@ import vuejsPaginateNextUmd from 'vuejs-paginate-next';
         methods: {
             pageChange(pageNum) {
                 this.currentPage = Number(pageNum);
+            },
+            accountOwner(listing) {
+                if (!localStorage.getItem("user_id")) return false;
+
+                if (listing.account_id !== Number(localStorage.getItem("user_id"))) return false;
+
+                return true;
+            },
+            listingEditDestination(listing) {
+                return `/edit-listing/${listing.id}`;
             }
         },
     }
